@@ -8,5 +8,10 @@ Vue.config.productionTip = false
 new Vue({
   router,
   vuetify,
-  render: h => h(App)
+  render: h => h(App),
+
+  mounted() {
+    this.axios.get('https://api-homolog.hauseful.com/v1/realties')
+    .then(response =>(this.info = response))
+  }
 }).$mount('#app')
